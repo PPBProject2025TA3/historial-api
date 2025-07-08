@@ -13,20 +13,16 @@ class Historial extends Model
         'estado_actual',
         'usuario_creador_id',
         'fecha_hora',
-        'accion'
+        'accion',
+        'completitud',
+        'fecha_inicio',
+        'fecha_vencimiento'
     ];
 
+    
     protected $casts = [
+        'tarea_id' => 'integer', 
+        'usuario_creador_id' => 'integer',
         'fecha_hora' => 'datetime'
     ];
-
-    public function tarea()
-    {
-        return $this->belongsTo(Tarea::class, 'tarea_id');
-    }
-
-    public function usuario()
-    {
-        return $this->belongsTo(User::class, 'usuario_creador_id');
-    }
 }
